@@ -61,7 +61,7 @@ const {
   startClock,
   stopClock,
   clockRunning,
-  interpolate,
+  interpolateNode,
 } = Animated;
 // }}}
 
@@ -1438,12 +1438,12 @@ export class SortableMultilist extends React.Component<Props, State> {
 
     const clock = new Clock();
 
-    const itemHeight = interpolate(activeItemArrayIndexValue, {
+    const itemHeight = interpolateNode(activeItemArrayIndexValue, {
       inputRange: itemArrayIds,
       outputRange: itemHeightValues,
     });
     const itemOffset = itemOffsets[arrayIndex];
-    const firstItemId = interpolate(activeItemArrayIndexValue, {
+    const firstItemId = interpolateNode(activeItemArrayIndexValue, {
       inputRange: itemArrayIds,
       outputRange: firstItemIds,
     });
@@ -1461,7 +1461,7 @@ export class SortableMultilist extends React.Component<Props, State> {
       sub(firstItemId, draggableId),
       itemHeight,
     );
-    const lastItemId = interpolate(this.activeItemArrayIndexValue, {
+    const lastItemId = interpolateNode(this.activeItemArrayIndexValue, {
       inputRange: itemArrayIds,
       outputRange: lastItemIds,
     });
